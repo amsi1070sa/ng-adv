@@ -25,3 +25,65 @@ Companion Material for Class Delivery by [Alexander Pajer](https://www.integrati
 ## Contributing
 
 Feel free to contribute. When contribute implement your changes / additions on a feature branch in your fork and issue a pull request after completion. An introduction video into forks and pull requests can be found [here](https://www.youtube.com/watch?v=nT8KGYVurIU)
+
+### Extend the demos in the Demo App
+
+Create a hosting component:
+
+```bash
+ng g c demos/samples/control-value-accessor
+```
+
+Add a MatCard to the component
+
+```html
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Demo Name
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+   
+   <YOUR DEMO GOES HERE>
+   
+  </mat-card-content>
+</mat-card>
+```
+
+Register it in the Demo Module: 
+
+```typescript
+const demoRoutes: Routes = [
+  {
+    path: '',
+    component: DemoContainerComponent,
+
+    children: [
+      { path: 'reactiveforms', component: ReactiveFormsComponent },
+      { path: 'actionstream', component: ActionStreamsComponent },
+      { path: 'formbuilder', component: FormsBuilderComponent },
+      { path: 'formcontrol', component: FormControlComponent },
+      { path: 'async-pipe', component: AsyncPipeComponent },
+      { path: 'formarray', component: FormArrayComponent },
+      { path: 'validation', component: ReactiveValidationComponent },
+      { path: 'cascade', component: ReactiveCascadeComponent },
+      { path: 'ngx-formly', component: NgxFormlyComponent },
+      { path: 'cva', component: ControlValueAccessorComponent },
+    ],
+  },
+];
+```
+
+Add it to db.json:
+
+```json
+{
+  "url": "cva",
+  "topicid": 3,
+  "title": "ControlValueAccessor",
+  "component": "ControlValueAccessorComponent",
+  "visible": true,
+  "sortOrder": 9
+}
+```
